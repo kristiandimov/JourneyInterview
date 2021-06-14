@@ -1,0 +1,75 @@
+﻿@model Journey.ViewModels.Travels.TravelVM
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>List</h2>
+
+
+<p></p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CityStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HourStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HourEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FreeSpace)
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        @using (Html.BeginForm())
+        {
+            <th>
+                @Html.EditorFor(model => model.SearchByDeparure)
+            </th>
+            <th>
+                @Html.EditorFor(model => model.SearchByArrival)
+            </th>
+            <th>
+                @Html.EditorFor(model => model.SearchByHourDeparure)
+            </th>
+            <th>
+                @Html.EditorFor(model => model.SearchByHourArrival)
+            </th>
+            <th><input type="submit" value="Search" class="btn btn-default" /></th>
+            <th></th>
+        }
+        </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.CityStart)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CityEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.HourStart)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.HourEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.FreeSpace)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.JounrneyId })
+            </td>
+        </tr>
+    }
+
+</table>
+

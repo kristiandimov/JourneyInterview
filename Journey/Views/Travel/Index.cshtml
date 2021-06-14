@@ -1,0 +1,60 @@
+﻿@model Journey.ViewModels.Travels.TravelVM
+@using Journey.Models
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CityStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CityEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HourStart)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HourEnd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FreeSpace)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(model => item.CityStart)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.CityEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.HourStart)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.HourEnd)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.FreeSpace)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.JounrneyId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.JounrneyId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.JounrneyId })
+            </td>
+
+        </tr>
+    }
+
+</table>
+
